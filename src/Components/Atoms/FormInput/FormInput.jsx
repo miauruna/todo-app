@@ -10,11 +10,9 @@ function FormInput(props) {
 		value,
 		setValue,
 		placeholder,
-		setInputError,
 		name,
 	} = props;
-	const [error, setError] = useState('');
-	const [genError, setGenError] = useState(false);
+
 	const [inputType, setInputType] = useState(
 		type === 'password' ? 'password' : 'text'
 	);
@@ -25,38 +23,34 @@ function FormInput(props) {
 	// validate fields when clicking outside the box
 	const handleBlur = (event) => {
 		event.preventDefault();
-
-		switch (name) {
-			case 'Username':
-				value.length === 0
-					? setError('Your username is required.')
-					: setError('');
-				break;
-			case 'Password':
-				value.length < 3
-					? setError('Your password is required.')
-					: setError('');
-				break;
-			case 'Username-required':
-			case 'Email-required':
-			case 'Temporary-required':
-				if (value.length === 0) {
-					setGenError(true);
-					setInputError('Please fill in all required fields');
-					setTimeout(() => {
-						setInputError('');
-					}, 7000);
-				} else {
-					setInputError('');
-					setGenError(false);
-				}
-				break;
-			default:
-				break;
-		}
-		if (value.includes(' ')) {
-			setError('Sorry, spaces not allowed.');
-		}
+		// switch (name) {
+		// 	case 'Username':
+		// 		value.length === 0
+		// 			? setError('Your username is required.')
+		// 			: setError('');
+		// 		break;
+		// 	case 'Password':
+		// 		value.length < 3
+		// 			? setError('Your password is required.')
+		// 			: setError('');
+		// 		break;
+		// 	case 'Username-required':
+		// 	case 'Email-required':
+		// 	case 'Temporary-required':
+		// 		if (value.length === 0) {
+		// 			setGenError(true);
+		// 			setInputError('Please fill in all required fields');
+		// 			setTimeout(() => {
+		// 				setInputError('');
+		// 			}, 7000);
+		// 		} else {
+		// 			setInputError('');
+		// 			setGenError(false);
+		// 		}
+		// 		break;
+		// 	default:
+		// 		break;
+		// }
 	};
 
 	// handle change
@@ -66,17 +60,13 @@ function FormInput(props) {
 
 	return (
 		<div className='input-with-label'>
-			<label
-				htmlFor={`${label}-input`}
-				className={`input-label ${error || genError ? 'invalid' : ''}`}>
+			<label htmlFor={`${label}-input`} className='input-label'>
 				{label}
 			</label>
 
 			<div className={`input-wrapper ${className}`}>
 				<input
-					className={`input-field ${
-						error || genError ? 'invalid-input' : ''
-					}`}
+					className='input-field'
 					type={inputType}
 					value={value}
 					name={name}
@@ -103,7 +93,6 @@ function FormInput(props) {
 					</i>
 				)}
 			</div>
-			{error && <p className='error-notice'>{error}</p>}
 		</div>
 	);
 }
