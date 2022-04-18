@@ -1,13 +1,55 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: 'Assistant', 'Nanum Gothic', sans-serif, -apple-system,
+		BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	box-sizing: border-box;
+	min-height: 100vh;
+}
+* {
+	font-family: 'Assistant', 'Nanum Gothic', sans-serif;
+}
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+*::-webkit-scrollbar {
+	width: 14px;
+}
+*::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb {
+	background: #d2d2d2;
+	border-radius: 10px;
+}
+input:focus::placeholder {
+	opacity: 0;
+}
+button {
+	cursor: pointer;
+}
+/* fade in animation */
+@-webkit-keyframes fadeinout {
+	0%,
+	100% {
+		opacity: 0;
+	}
+	15%,
+	80% {
+		opacity: 1;
+	}
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes fadeinout {
+	0%,
+	100% {
+		opacity: 0;
+	}
+	15%,
+	80% {
+		opacity: 1;
+	}
 }

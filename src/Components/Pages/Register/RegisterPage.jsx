@@ -1,15 +1,15 @@
 import React from 'react';
-import LoginForm from '../../Templates/LoginForm/LoginForm';
 import LogoFinal from '../../Resources/Logo/LogoFinal.svg';
-import './LoginPage.css';
+import RegisterForm from '../../Templates/RegisterForm/RegisterForm';
+import './RegisterPage.css';
 
-const LoginPage = () => {
+const RegisterPage = () => {
 	return (
 		<div className='login-page-wrapper'>
 			<img className='login-page-logo' src={LogoFinal} alt='app logo' />
-			<LoginForm />
+			<RegisterForm />
 		</div>
 	);
 };
 
-export default LoginPage;
+export default RegisterPage;
