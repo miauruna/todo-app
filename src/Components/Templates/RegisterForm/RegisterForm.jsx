@@ -21,6 +21,7 @@ const RegisterForm = () => {
 		try {
 			const newUser = { email, password, passwordCheck, displayName };
 			await axios.post('http://localhost:8001/users/register', newUser);
+
 			const loginResponse = await axios.post(
 				'http://localhost:8001/users/login',
 				{
@@ -41,13 +42,14 @@ const RegisterForm = () => {
 	};
 	return (
 		<div>
-			{error && (
-				<ErrorNotice
-					message={error}
-					clearError={() => setError(undefined)}
-				/>
-			)}
 			<Card className='login-page-card'>
+				{error && (
+					<ErrorNotice
+						className='error-notice-registration'
+						message={error}
+						clearError={() => setError(undefined)}
+					/>
+				)}
 				<FormInput
 					type='text'
 					label='Your Name:'
@@ -87,7 +89,7 @@ const RegisterForm = () => {
 					path='/'
 				/>
 				<p className='register-disclaimer'>
-					By registering, you aggree to share your name and e-mail
+					By registering, you agree to share your name and e-mail
 					address with us
 				</p>
 			</Card>
