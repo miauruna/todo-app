@@ -33,18 +33,16 @@ const TodoListItem = (props) => {
 		console.log(isDone);
 	};
 	return (
-		<div>
-			<li>
-				<input
-					id='inputItem'
-					type='checkbox'
-					checked={isDone}
-					onChange={() => console.log('')}></input>{' '}
-				<label htmlFor='inputItem' onClick={handleChange}>
-					{' '}
-					{props.title}
-				</label>
-			</li>
+		<div className='list-item'>
+			<input
+				id='inputItem'
+				type='checkbox'
+				checked={isDone}
+				onChange={() => console.log('')}></input>{' '}
+			<label htmlFor='inputItem' onClick={handleChange}>
+				{' '}
+				{props.title}
+			</label>
 		</div>
 	);
 };

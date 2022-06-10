@@ -26,7 +26,7 @@ const LoginForm = () => {
 				user: loginResponse.data.user,
 			});
 			localStorage.setItem('auth-token', loginResponse.data.token);
-			navigate.push('/list');
+			navigate('/list');
 		} catch (err) {
 			err.response.data.msg && setError(err.response.data.msg);
 		}

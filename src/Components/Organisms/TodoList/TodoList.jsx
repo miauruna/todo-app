@@ -34,22 +34,26 @@ const TodoList = () => {
 	};
 	return (
 		<div>
-			<h2>List Title</h2>
-			<ul>
-				{todoList.map((item) => {
-					return (
-						<TodoListItem
-							key={item._id}
-							title={item.title}
-							type={item.type}
-							color={item.color}
-							done={item.completed}
-							id={item._id}
-						/>
-					);
-				})}
-			</ul>
-			<AddNewItemToList addNew={addNewItem} />
+			<div className='list-wrapper'>
+				<div className='list-children'>
+					<p className='list-item list-title'>List Title</p>
+					<ul className='list-item-position'>
+						{todoList.map((item) => {
+							return (
+								<TodoListItem
+									key={item._id}
+									title={item.title}
+									type={item.type}
+									color={item.color}
+									done={item.completed}
+									id={item._id}
+								/>
+							);
+						})}
+					</ul>
+					<AddNewItemToList addNew={addNewItem} />
+				</div>
+			</div>
 		</div>
 	);
 };

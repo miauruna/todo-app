@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
+import UserContext from '../../Store/Auth/UserContext';
 import LogoFinal from '../../Resources/Logo/LogoFinal.svg';
 import LPNoteLogo from '../../Resources/Icons/LPNoteLogo.svg';
 import NoticeSign from '../../Resources/Icons/NoticeSign.svg';
 import LandingPageContent from '../../Templates/LandingPageContent/LandingPageContent';
 
 const LandingPage = () => {
+	const { userData } = useContext(UserContext);
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (userData.user) navigate('/list');
+	}, [userData.user, navigate]);
+	//add spinner
 	return (
 		<div className='landing-page-wrapper'>
 			<img className='login-page-logo' src={LogoFinal} alt='app logo' />
