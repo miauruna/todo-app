@@ -26,25 +26,20 @@ const LoginForm = () => {
 				user: loginResponse.data.user,
 			});
 			localStorage.setItem('auth-token', loginResponse.data.token);
-			navigate.push('/');
+			navigate.push('/list');
 		} catch (err) {
 			err.response.data.msg && setError(err.response.data.msg);
 		}
 	};
 	return (
 		<div>
-			{error && (
-				<ErrorNotice
-					message={error}
-					clearError={() => setError(undefined)}
-				/>
-			)}
 			<Card className='login-page-card'>
 				<p className='login-message'>
 					Welcome back! {'\n'} Please log in to access your account
 				</p>
+
 				<FormInput
-					type='email'
+					inputType='email'
 					label='E-mail:'
 					name='Email'
 					setValue={setEmail}
@@ -56,6 +51,13 @@ const LoginForm = () => {
 					setValue={setPassword}
 				/>
 				{/* add error here */}
+				{error && (
+					<ErrorNotice
+						className='error-notice-registration'
+						message={error}
+						clearError={() => setError(undefined)}
+					/>
+				)}
 				<Button type='button' className='login-button' onClick={submit}>
 					Log in
 				</Button>

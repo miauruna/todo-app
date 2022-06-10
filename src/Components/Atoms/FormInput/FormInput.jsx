@@ -67,7 +67,7 @@ function FormInput(props) {
 			<div className={`input-wrapper ${className}`}>
 				<input
 					className='input-field'
-					type={inputType}
+					type={inputType || type}
 					value={value}
 					name={name}
 					placeholder={placeholder}
