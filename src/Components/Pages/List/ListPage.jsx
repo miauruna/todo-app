@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import UserContext from '../../Store/Auth/UserContext';
 import TodoList from '../../Organisms/TodoList/TodoList';
 import './ListPage.css';
+import SignOut from '../../Resources/Icons/SignOut.svg';
 import Button from '../../Atoms/Button/Button';
 
 const ListPage = () => {
@@ -23,14 +24,16 @@ const ListPage = () => {
 			{' '}
 			{userData.user ? (
 				<>
-					Welcome, {userData.user.displayName}! We're glad to have you
-					back.
-					<Button
-						className='sign-out-button'
-						type='button'
-						onClick={logout}>
-						Sign Out
-					</Button>
+					<div className='welcome-message'>
+						Welcome, {userData.user.displayName}! We're glad to have
+						you back.{' '}
+						<Button
+							type='button'
+							onClick={logout}
+							className='sign-out-button'>
+							<img src={SignOut} alt='Sign Out' />
+						</Button>
+					</div>
 					<TodoList />{' '}
 				</>
 			) : (
