@@ -39,7 +39,10 @@ const TodoListItem = (props) => {
 				type='checkbox'
 				checked={isDone}
 				onChange={() => console.log('')}></input>{' '}
-			<label htmlFor='inputItem' onClick={handleChange}>
+			<label
+				htmlFor='inputItem'
+				onClick={handleChange}
+				className='list-item-label'>
 				{' '}
 				{props.title}
 			</label>
