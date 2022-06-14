@@ -24,7 +24,6 @@ const TodoListItem = (props) => {
 			return data;
 		};
 		sendUpdate(updatedTodo);
-		// const result = sendUpdate(updatedTodo);
 	}, [props.title, props.id, isDone]);
 	const handleChange = () => {
 		if (isDone) {
@@ -32,8 +31,8 @@ const TodoListItem = (props) => {
 		} else {
 			setIsDone(true);
 		}
-		console.log(isDone);
 	};
+
 	return (
 		<div className='list-item'>
 			<input
@@ -41,15 +40,11 @@ const TodoListItem = (props) => {
 				type='checkbox'
 				className='list-item-input'
 				checked={isDone}
+				onChange={() => {}}
 			/>
-			<label
-				htmlFor='inputItem'
-				onClick={handleChange}
-				className='list-item-label'>
-				{' '}
+			<label className='list-item-label' onClick={handleChange}>
 				{props.title}
 				<span className='item-checkmark'>
-					{' '}
 					{!isDone ? (
 						<img src={Circle} alt='not checked' />
 					) : (
