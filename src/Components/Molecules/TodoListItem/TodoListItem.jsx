@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Circle from '../../Resources/Icons/Circle.svg';
+import CheckedCircle from '../../Resources/Icons/CheckedCircle.svg';
 
 const TodoListItem = (props) => {
 	const [isDone, setIsDone] = useState(props.done);
@@ -37,14 +39,23 @@ const TodoListItem = (props) => {
 			<input
 				id='inputItem'
 				type='checkbox'
+				className='list-item-input'
 				checked={isDone}
-				onChange={() => console.log('')}></input>{' '}
+			/>
 			<label
 				htmlFor='inputItem'
 				onClick={handleChange}
 				className='list-item-label'>
 				{' '}
 				{props.title}
+				<span className='item-checkmark'>
+					{' '}
+					{!isDone ? (
+						<img src={Circle} alt='not checked' />
+					) : (
+						<img src={CheckedCircle} alt='checked' />
+					)}
+				</span>
 			</label>
 		</div>
 	);
